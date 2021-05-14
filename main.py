@@ -1,6 +1,7 @@
 import cv2 as cv
 from tkinter import filedialog
 import tkinter as tk
+import aiTrainer
 class UI:
     window = None
 
@@ -14,14 +15,18 @@ class UI:
 
 
     def initUi(self):
-        greeting = tk.Label(text="Recognize streets")
-        button = tk.Button(self.window, text="Open file chooser", command=self.openImage)
-        greeting.pack()
-        button.pack()
+        title = tk.Label(text="Recognize streets")
+        buttonAnalyzer = tk.Button(self.window, text="Analyze picture", command=self.openImage)
+        buttonTrainer = tk.Button(self.window, text="Train the AI", command=aiTrainer.train)
+        title.pack()
+        buttonAnalyzer.pack()
+        buttonTrainer.pack()
 
     def openImage(self):
         filename = filedialog.askopenfilename()
         img = cv.imread(filename)
+        img_bw = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+
 
         if img is None:
             print("Hai inserito un'immagine non valida")

@@ -6,3 +6,17 @@
 	__Currently working on origin/dev
 	
 	4hrs until now
+
+
+
+
+@TODO
+    _Insert bounding rectangle to train positiveImages
+    _Develop training
+    _Create GUI to help with positive and negative images training
+    _Develop recognition
+    _Maybe add searchbar training
+
+
+HAAR> Uses floating point (Usually slower, but overall more precise)
+LBP> Uses integer preceision (Usually faster, needs a better training to get good results)
