@@ -1,11 +1,16 @@
 13/05/2021
-	Completed first stage of python dev w/classes
 	Ui is ok
 	Implemented OpenCV gui
 	Implemented this workbook
 	__Currently working on origin/dev
 	
 	4hrs until now
+
+18/05/2021
+    Implemented cifar-10 images conversion, to implement operations on categories
+    __Currently working on origin/dev
+
+    6hrs until now
 
 
 
