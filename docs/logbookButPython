@@ -14,9 +14,11 @@
 
 19/05/2021
     Started creation of buttons popup @TODO
+    Disposed the idea before this to implement a combobox, which works
+    Creating dinamically different folders, to run opencv_createsamples on
     __Currently working on origin/dev
 
-    7,5hrs until now
+    8,5hrs until now
 
 
 

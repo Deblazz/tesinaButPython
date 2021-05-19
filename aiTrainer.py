@@ -1,4 +1,5 @@
 import os
+import tkinter
 
 import cv2
 import mxnet
@@ -6,11 +7,9 @@ import numpy
 from tkinter import messagebox
 from tkinter import filedialog
 from tkinter import *
-from tkinter import simpledialog
 import shutil
 import os
 import pickle
-import UI
 def train():
     answer = messagebox.askokcancel("Warning", "Training the AI is a time-consuming process, are you ready?")
 
@@ -37,8 +36,8 @@ def saveCifar10Image(img, path):
 def openCifar10():
     categories = getCifar10Cat()
     filePaths = filedialog.askopenfilenames(title="Select the corresponding dataset(s)", initialdir="/media/deblazz/CEBAE294BAE2787")
-    imagesCount = 0
     for filePath in filePaths:
+        imagesCount = 0
         with open(filePath, 'rb') as file:
             dsContent = pickle.load(file, encoding='bytes')
         imgs = dsContent[b'data']
@@ -46,16 +45,46 @@ def openCifar10():
         lbls = dsContent[b'labels']
         imgArr = mxnet.nd.array(imgs)
         lblArr = mxnet.nd.array(lbls)
+        #answer = askCatToTrain(categories['label_names'])
+        bg = open("./training/cifar10/bg.txt", "w")
+        info = open("./training/cifar10/info.dat", "w")
 
-        answer = UI.askCatToTrain(categories['label_names'])
+
+        for img in imgArr:
+            #@TODO Implement loading bar
+            print (imagesCount)
+            if(lblArr[imagesCount] == 9):
+                path = f"./training/cifar10/positives/img{imagesCount}.jpg"
+                saveCifar10Image(img, path)
+                info.write(f"positives/img{imagesCount}.jpg  1  0 0 32 32\n")
+
+            else:
+                path = f"./training/cifar10/negatives/img{imagesCount}.jpg"
+                saveCifar10Image(img, path)
+                bg.write(f"negatives/img{imagesCount}.jpg\n")
+            imagesCount += 1
+    bg.close()
 
 
+def askCatToTrain(categories):
+    top = Toplevel()
+    top.geometry("500x100")
+    top.title("Select your descriptor")
+    label = Label(top, text="Choose which item you'll want to recognize")
+    label.pack()
 
-        #for img in imgArr:
-         #   path = f"./training/cifar10/img{imagesCount}.jpg"
-          #  saveCifar10Image(img, path)
-           # imagesCount+=1
+    answer = tkinter.StringVar(top)
+    drop = OptionMenu(top, answer, *categories)
+    drop.pack()
 
+    print(answer.get())
+
+    # combo = ttk.Combobox(top, width=27, state="readonly", values = categories)
+    # combo.pack()
+    #
+    #
+    # button = Button(top, text = "Select")
+    # button.pack()
 
 
 
