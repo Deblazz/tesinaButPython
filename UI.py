@@ -22,6 +22,19 @@ class UI:
         buttonAnalyzer.pack()
         buttonTrainer.pack()
 
+    @staticmethod
+    def askCatToTrain(categories, self):
+        label = tk.Label(self.window, text="Choose which item you'll want to recognize")
+        label.pack()
+        for cat in categories:
+            button = tk.Button(self.window, cat, command=lambda: actionListener(cat))
+            button.pack()
+
+        def actionListener(pressedButton):
+            print(pressedButton)
+
+        self.window.mainloop()
+
     def openImage(self):
         filename = filedialog.askopenfilename()
         img = cv.imread(filename)

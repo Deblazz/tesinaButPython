@@ -5,9 +5,12 @@ import mxnet
 import numpy
 from tkinter import messagebox
 from tkinter import filedialog
+from tkinter import *
+from tkinter import simpledialog
 import shutil
 import os
 import pickle
+import UI
 def train():
     answer = messagebox.askokcancel("Warning", "Training the AI is a time-consuming process, are you ready?")
 
@@ -43,10 +46,19 @@ def openCifar10():
         lbls = dsContent[b'labels']
         imgArr = mxnet.nd.array(imgs)
         lblArr = mxnet.nd.array(lbls)
-        for img in imgArr:
-            path = f"./training/cifar10/img{imagesCount}.jpg"
-            saveCifar10Image(img, path)
-            imagesCount+=1
+
+        answer = UI.askCatToTrain(categories['label_names'])
+
+
+
+        #for img in imgArr:
+         #   path = f"./training/cifar10/img{imagesCount}.jpg"
+          #  saveCifar10Image(img, path)
+           # imagesCount+=1
+
+
+
+
 
 
 
