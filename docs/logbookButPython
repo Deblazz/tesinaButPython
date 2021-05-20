@@ -13,12 +13,19 @@
     6hrs until now
 
 19/05/2021
-    Started creation of buttons popup @TODO
+    Started creation of buttons popup
     Disposed the idea before this to implement a combobox, which works
     Creating dinamically different folders, to run opencv_createsamples on
     __Currently working on origin/dev
 
     8,5hrs until now
+
+20/05/2021
+    Descriptor selection window works (@TODO button needs to be pressed twice)
+    To implement automatic training
+    To test training
+
+
 
 
 
@@ -33,3 +40,6 @@
 
 HAAR> Uses floating point (Usually slower, but overall more precise)
 LBP> Uses integer preceision (Usually faster, needs a better training to get good results)
+
+Known bugs>
+    This could be done using a deep learning algorithm, which would allow for better performance using GPU's advanced parallelization abilities

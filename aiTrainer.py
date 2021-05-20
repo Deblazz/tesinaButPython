@@ -1,6 +1,4 @@
-import os
 import tkinter
-
 import cv2
 import mxnet
 import numpy
@@ -10,6 +8,8 @@ from tkinter import *
 import shutil
 import os
 import pickle
+import subprocess
+
 def train():
     answer = messagebox.askokcancel("Warning", "Training the AI is a time-consuming process, are you ready?")
 
@@ -45,25 +45,36 @@ def openCifar10():
         lbls = dsContent[b'labels']
         imgArr = mxnet.nd.array(imgs)
         lblArr = mxnet.nd.array(lbls)
-        #answer = askCatToTrain(categories['label_names'])
+        answer = askCatToTrain(categories['label_names'])
+
         bg = open("./training/cifar10/bg.txt", "w")
         info = open("./training/cifar10/info.dat", "w")
-
+        filterVal = categories['label_names'].index(answer)
+        nPos = 0
+        nNeg = 0
+        emptyFolder("./training/cifar10/negatives")
+        emptyFolder("./training/cifar10/positives")
 
         for img in imgArr:
-            #@TODO Implement loading bar
-            print (imagesCount)
-            if(lblArr[imagesCount] == 9):
+            # @TODO Implement loading bar
+            print(imagesCount)
+            if (lblArr[imagesCount] == filterVal):
                 path = f"./training/cifar10/positives/img{imagesCount}.jpg"
                 saveCifar10Image(img, path)
                 info.write(f"positives/img{imagesCount}.jpg  1  0 0 32 32\n")
+                nPos+=1
 
             else:
                 path = f"./training/cifar10/negatives/img{imagesCount}.jpg"
                 saveCifar10Image(img, path)
                 bg.write(f"negatives/img{imagesCount}.jpg\n")
+                nNeg+=1
             imagesCount += 1
+        startCifar10Training(nPos, nNeg)
+
     bg.close()
+
+
 
 
 def askCatToTrain(categories):
@@ -74,25 +85,25 @@ def askCatToTrain(categories):
     label.pack()
 
     answer = tkinter.StringVar(top)
+    answer.set(categories[0])
+
     drop = OptionMenu(top, answer, *categories)
     drop.pack()
 
-    print(answer.get())
+    returnVal = Label(top)
+    returnVal.pack()
 
-    # combo = ttk.Combobox(top, width=27, state="readonly", values = categories)
-    # combo.pack()
-    #
-    #
-    # button = Button(top, text = "Select")
-    # button.pack()
+    def callback():
+        top.quit()
+        returnVal["text"] = answer.get()
 
+    button = Button(top, text = "Select", command=callback)
+    button.pack()
+    top.mainloop()
+    while returnVal["text"] == "":
+        pass
 
-
-
-
-
-
-
+    return returnVal["text"]
 
 
 def saveNegatives():
@@ -122,10 +133,16 @@ def savePositives():
         print("Devi pagare le tasse")
 
 
+def startCifar10Training(nPos, nNeg):
+    print(f"{nPos}, {nNeg}")
+    # command = f"opencv_createsamples -info \"./training/cifar10/info.dat\" -vec \"./training/cifar10/positives.vec\" -w 32 -h 32 -num {nPos}"
+    # os.system(command)
+    #
+    # command = f"opencv_traincascade -data data -vec \"./training/cifar10/positives.vec\" -bg \"./training/cifar10/bg.txt\" -numPos {nPos} -numNeg {nNeg} -numStages 10 -w 32 -h 32"
+    # os.system(command)
 
 
-
-def emptyFolder():
+def emptyFolder(path):
     #Note: You can choose two approaches here. You can either delete the folder as a whole or cycle through files, deleting each single one. For this example we used the first case scenario
-    shutil.rmtree("./training/negativesTraining")
-    os.mkdir("./training/negativesTraining")
+    shutil.rmtree(path)
+    os.mkdir(path)
