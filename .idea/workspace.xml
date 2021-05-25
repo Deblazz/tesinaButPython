@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df3744cc-d7dc-4bba-b63a-699180449915" name="Default Changelist" comment="Minor tweaks">
+    <list default="true" id="df3744cc-d7dc-4bba-b63a-699180449915" name="Default Changelist" comment="You should try to train">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aiAnalyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/aiAnalyzer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aiTrainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/aiTrainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/logbookButPython" beforeDir="false" afterPath="$PROJECT_DIR$/docs/logbookButPython" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +115,14 @@
       <workItem from="1621013040267" duration="5493000" />
       <workItem from="1621349692589" duration="3795000" />
       <workItem from="1621407662275" duration="4851000" />
-      <workItem from="1621434484433" duration="27311000" />
+      <workItem from="1621434484433" duration="27650000" />
+      <workItem from="1621528453277" duration="891000" />
+      <workItem from="1621576074893" duration="602000" />
+      <workItem from="1621717658652" duration="3068000" />
+      <workItem from="1621850490695" duration="2081000" />
+      <workItem from="1621852856955" duration="2282000" />
+      <workItem from="1621931312316" duration="611000" />
+      <workItem from="1621938460491" duration="310000" />
     </task>
     <task id="LOCAL-00001" summary="SERVICE COMMIT, CHECK LOGBOOK">
       <created>1621413791875</created>
@@ -130,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621456682460</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="You should try to train">
+      <created>1621509606910</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621509606910</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,10 +166,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="SERVICE COMMIT, CHECK LOGBOOK" />
     <MESSAGE value="Minor tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor tweaks" />
+    <MESSAGE value="You should try to train" />
+    <option name="LAST_COMMIT_MESSAGE" value="You should try to train" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tesinaButPython$UI.coverage" NAME="UI Coverage Results" MODIFIED="1621509005016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tesinaButPython$UI.coverage" NAME="UI Coverage Results" MODIFIED="1621938718008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tesinaButPython$main.coverage" NAME="main Coverage Results" MODIFIED="1621413549635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tesinaButPython$aiTrainer.coverage" NAME="aiTrainer Coverage Results" MODIFIED="1621436945330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

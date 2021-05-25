@@ -61,18 +61,21 @@ def openCifar10():
             if (lblArr[imagesCount] == filterVal):
                 path = f"./training/cifar10/positives/img{imagesCount}.jpg"
                 saveCifar10Image(img, path)
-                info.write(f"positives/img{imagesCount}.jpg  1  0 0 32 32\n")
+                path = os.path.abspath(f"./training/cifar10/positives/img{imagesCount}.jpg")
+                info.write(f"{path}  1  0 0 32 32\n")
                 nPos+=1
 
             else:
                 path = f"./training/cifar10/negatives/img{imagesCount}.jpg"
                 saveCifar10Image(img, path)
-                bg.write(f"negatives/img{imagesCount}.jpg\n")
+                path = os.path.abspath(f"./negatives/img{imagesCount}.jpg")
+                bg.write(f"{path}\n")
                 nNeg+=1
             imagesCount += 1
+        bg.close()
         startCifar10Training(nPos, nNeg)
 
-    bg.close()
+
 
 
 
@@ -135,11 +138,15 @@ def savePositives():
 
 def startCifar10Training(nPos, nNeg):
     print(f"{nPos}, {nNeg}")
-    # command = f"opencv_createsamples -info \"./training/cifar10/info.dat\" -vec \"./training/cifar10/positives.vec\" -w 32 -h 32 -num {nPos}"
-    # os.system(command)
-    #
-    # command = f"opencv_traincascade -data data -vec \"./training/cifar10/positives.vec\" -bg \"./training/cifar10/bg.txt\" -numPos {nPos} -numNeg {nNeg} -numStages 10 -w 32 -h 32"
-    # os.system(command)
+
+    os.chdir("./training/cifar10")
+    os.system("ls")
+
+    command = f"opencv_createsamples -info \"info.dat\" -vec \"positives.vec\" -w 32 -h 32 -num {nPos}"
+    os.system(command)
+
+    command = f"opencv_traincascade -data data -vec positives.vec -bg bg.txt -numPos {nPos*0.8} -numNeg {nNeg} -numStages 10 -w 32 -h 32 -featureType LBP"
+    os.system(command)
 
 
 def emptyFolder(path):
