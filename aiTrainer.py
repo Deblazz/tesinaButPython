@@ -8,6 +8,7 @@ from tkinter import *
 import shutil
 import os
 import pickle
+import math
 import subprocess
 
 def train():
@@ -29,7 +30,7 @@ def getCifar10Cat():
 
 def saveCifar10Image(img, path):
     img = img.asnumpy().transpose(1, 2, 0)
-    img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
     cv2.imwrite(path, img)
 
 
@@ -57,25 +58,21 @@ def openCifar10():
 
         for img in imgArr:
             # @TODO Implement loading bar
-            print(imagesCount)
             if (lblArr[imagesCount] == filterVal):
                 path = f"./training/cifar10/positives/img{imagesCount}.jpg"
                 saveCifar10Image(img, path)
-                path = os.path.abspath(f"./training/cifar10/positives/img{imagesCount}.jpg")
-                info.write(f"{path}  1  0 0 32 32\n")
+                info.write(f"./positives/img{imagesCount}.jpg  1  0 0 32 32\n")
                 nPos+=1
 
             else:
                 path = f"./training/cifar10/negatives/img{imagesCount}.jpg"
                 saveCifar10Image(img, path)
-                path = os.path.abspath(f"./negatives/img{imagesCount}.jpg")
-                bg.write(f"{path}\n")
+                bg.write(f"./negatives/img{imagesCount}.jpg\n")
                 nNeg+=1
             imagesCount += 1
-        bg.close()
-        startCifar10Training(nPos, nNeg)
+        startCifar10Training(answer)
 
-
+    bg.close()
 
 
 
@@ -136,17 +133,10 @@ def savePositives():
         print("Devi pagare le tasse")
 
 
-def startCifar10Training(nPos, nNeg):
-    print(f"{nPos}, {nNeg}")
-
-    os.chdir("./training/cifar10")
-    os.system("ls")
-
-    command = f"opencv_createsamples -info \"info.dat\" -vec \"positives.vec\" -w 32 -h 32 -num {nPos}"
-    os.system(command)
-
-    command = f"opencv_traincascade -data data -vec positives.vec -bg bg.txt -numPos {nPos*0.8} -numNeg {nNeg} -numStages 10 -w 32 -h 32 -featureType LBP"
-    os.system(command)
+def startCifar10Training(answer):
+    emptyFolder("./training/cifar10/data")
+    os.system("opencv_createsamples -w 32 -h 32 -vec ./training/cifar10/positives.vec -info ./training/cifar10/info.dat -num 860")
+    os.system(f"cd training/cifar10; opencv_traincascade -data data -vec positives.vec -bg bg.txt -numPos 800 -numNeg 400 -numStages 10 -w 32 -h 32 -featureType HAAR -minHitRate 0.998 -precalcValBufSize 2048 -precalcIdxBufSize 2048; cd data; mv cascade.xml {answer}.xml")
 
 
 def emptyFolder(path):

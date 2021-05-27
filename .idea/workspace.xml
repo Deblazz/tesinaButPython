@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df3744cc-d7dc-4bba-b63a-699180449915" name="Default Changelist" comment="Analysis should work, needs coherent and complete training">
-      <change beforePath="$PROJECT_DIR$/docs/logbookButPython" beforeDir="false" afterPath="$PROJECT_DIR$/docs/logbookButPython" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aiAnalyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/aiAnalyzer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aiTrainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/aiTrainer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +121,10 @@
       <workItem from="1621850490695" duration="2081000" />
       <workItem from="1621852856955" duration="2282000" />
       <workItem from="1621931312316" duration="611000" />
-      <workItem from="1621938460491" duration="522000" />
+      <workItem from="1621938460491" duration="1303000" />
+      <workItem from="1622066967775" duration="89000" />
+      <workItem from="1622103000095" duration="7013000" />
+      <workItem from="1622125056421" duration="600000" />
     </task>
     <task id="LOCAL-00001" summary="SERVICE COMMIT, CHECK LOGBOOK">
       <created>1621413791875</created>
@@ -149,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621938936792</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Analysis should work, needs coherent and complete training">
+      <created>1621939003300</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621939003300</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +187,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Analysis should work, needs coherent and complete training" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/tesinaButPython$UI.coverage" NAME="UI Coverage Results" MODIFIED="1621938795529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tesinaButPython$UI.coverage" NAME="UI Coverage Results" MODIFIED="1622110599831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tesinaButPython$main.coverage" NAME="main Coverage Results" MODIFIED="1621413549635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tesinaButPython$aiTrainer.coverage" NAME="aiTrainer Coverage Results" MODIFIED="1621436945330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
