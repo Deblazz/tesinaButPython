@@ -1,0 +1,57 @@
+13/05/2021
+	Ui is ok
+	Implemented OpenCV gui
+	Implemented this workbook
+	__Currently working on origin/dev
+	
+	4hrs until now
+
+18/05/2021
+    Implemented cifar-10 images conversion, to implement operations on categories
+    __Currently working on origin/dev
+
+    6hrs until now
+
+19/05/2021
+    Started creation of buttons popup
+    Disposed the idea before this to implement a combobox, which works
+    Creating dinamically different folders, to run opencv_createsamples on
+    __Currently working on origin/dev
+
+    8,5hrs until now
+
+20/05/2021
+    Descriptor selection window works (@TODO button needs to be pressed twice)
+    To implement automatic training
+    To test training
+
+    10hrs until now
+
+25/05/2021
+    Needs quite a bit of refinement
+    Detection should work
+    Needs better training
+
+    13 hrs until now
+
+26-27/05/2021
+    Still needs a bit of refinement
+    Training should be fine
+    Automatic cifar10 training achieved
+
+
+
+
+@TODO
+    _Insert bounding rectangle to train positiveImages
+    _Develop training
+    _Create GUI to help with positive and negative images training
+    _Develop recognition
+    _Maybe add searchbar training
+
+
+HAAR> Uses floating point (Usually slower, but overall more precise)
+LBP> Uses integer preceision (Usually faster, needs a better training to get good results)
+
+Known bugs>
+    This could be done using a deep learning algorithm, which would allow for better performance using GPU's advanced parallelization abilities
